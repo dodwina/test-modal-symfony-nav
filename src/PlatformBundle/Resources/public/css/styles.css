@@ -1,0 +1,761 @@
+/*********************************************************
+                   STYLES GENERIQUE
+********************************************************/
+*{
+    box-sizing: border-box;
+    /*compatibilites navigateurs*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+html,body{margin:0 auto; padding:0;
+    /* overflow-x: hidden;*/ /* empecher le defilement sur mobile */
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+    background: #fff ;
+}
+/*container de la page*/
+#wrapper{margin-top:8rem;}
+
+img{ max-width: 100%; height:auto;}
+
+ul li, ol{list-style-type:none;}
+
+a,.fab{
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+/*a{color:#FFF;}*/
+ul li a{color:#FFF;}
+/*a:visited, a:focus{color:inherit;}*/
+/*fleche de l'icone user*/
+/*a:not([href]):not([tabindex]){color:#FFF;}*/
+button>a{color:#000;}
+
+a:hover, i:hover, .fab:hover .far:hover{
+    color: #1b6d85;
+    text-decoration: none;
+}
+p a { color:black;
+    font-size: 1em}
+
+.lead{color:grey;}
+
+p, .adresse{
+    color:#3c3f42;
+    font-size: 1em;
+    margin-top: 20px;
+}
+p::first-letter,
+h1::first-letter,
+h2::first-letter,
+h3::first-letter,
+h4::first-letter,
+figcaption::first-letter{
+    text-transform: uppercase;
+}
+h1{text-transform: uppercase;}
+
+button{border:none; background-color:transparent ;}
+
+/****************ECRASE CLASSES DE BOOTSTRAP *********************/
+.h1{ font-size: 1.45rem;}
+.h2{ font-size: 1.30rem;}
+.h3{ font-size: 1.15rem;}
+.h4{font-size: 1em;}
+
+/*ts les class h1 minuscule*/
+[class^="h1"]{text-transform: lowercase;}
+
+.text-white{color:#FFF;}
+.text-successe{color:#1ca3a5 !important;} /*ecraser la class d'origine  "text-success"  ne fonctionne mal*/
+.bg-success,
+.btn-successe{/*ecraser la class  d'origine "btn-success" de bootstrap fonctionne mal*/
+    background-color: #1ca3a5 !important;
+    border:none !important ;
+    color:#FFF;
+}
+.btn-outline-secondary{ border:1px solid #FFF; color:#FFF;  !important}
+.btn-primary{
+    background-color:grey; !important;
+    border-color:grey;
+    font-size: .75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    /*compatibilites navigateurs*/
+    -webkit-border-radius: 3%;
+    -moz-border-radius: 3%;
+    border-radius:3%;
+    padding:13px;
+
+    /*background: #3e6aff;*/
+    /* background: #527593 ;*/
+    /*  background:#454545;*/
+}
+
+/***hover all btn style****/
+[class^="btn"]:hover{background-color: #deb887 !important; border:none !important; cursor:pointer;}
+
+
+/****color icon ****/
+.fa-list,
+.fa-video,
+.fa-laptop,
+.fa-play-circle,
+.fa-pencil-alt,
+.fa-paint-brush{ color:#deb887;}
+.fa-arrow-right, .fa-arrow-left {color:#000;}
+.fa-heart {color:#c71c57;}
+.fa-sort-down{color: #FFF;}
+.fa-home:hover{color:#deb887; !important; }
+
+/*********************************************************
+                    PAGE ACCUEIL
+********************************************************/
+
+/***********************VIDEO*************/
+/*responsive video*/
+#banner .embed-responsive {
+    position: absolute !important;
+    z-index:-1000;
+    top:0;
+}
+
+/**********************IMG POSTER**********/
+/*responsive image */
+#banner .embed-responsive img{
+    position:absolute !important;
+    opacity:0.7;
+    top:0;
+    left:0;
+    height:100%; /*selon la qualite de l'image'*/
+    z-index:-1000;
+    cursor:none;
+}
+/********************BASELINE*************/
+/* position baseline*/
+#banner .baseline-overlay{
+    margin-top: 14rem;
+    background: #1ca3a5;
+    padding: 20px 21px 20px;
+}
+/*********BTN CALL TO ACTION + JS***********/
+
+/*btn-cta position */
+#banner .cta{margin-top: 3.5rem;}
+
+
+/*btn-cta position apres scroll*/
+.cta--fixed{
+    width:100%;
+    z-index: 1;
+    display: block; /*pr centrer le texte */
+    position:fixed;
+    /* margin-top:18px;*/
+    top:5.5rem;
+    right:0;
+    background:#deb887;
+    /* box-shadow: 0 1px 20px rgba(0,0,0,0.2);*/
+}
+
+/***********RESPONSIVE BASELINE ET BTN-ACTION*****************/
+@media(min-width: 661px) and (max-width:774px) {
+    #banner .baseline-overlay p{color:#000;}
+}
+
+
+@media (max-width: 888px) {
+    #banner iframe{display:none;}
+
+    #banner .baseline-overlay { background: none;}
+
+    .baseline-overlay .btn-outline-secondary{
+        color:#000;
+        border:1px solid #000;
+    }
+    .cta{ margin-top:0;}
+}
+
+
+@media(min-width: 888px) and (max-width:992px) {
+    #banner .baseline-overlay {
+        margin-left: 43% ;
+    }
+}
+
+@media (min-width: 992px) {
+
+    #banner .baseline-overlay {
+        /* margin-left: 55%;*/
+        margin-left:59%;
+        margin-top: 15rem;
+        /*padding: 10px 15px 20px;*/
+    }
+}
+
+
+
+
+/*************************CARD LISTMOOC***********/
+
+/*emplacement de la liste des moocs*/
+.container-moocs-scroll{  margin: 3rem  0 0 0; }
+
+/*emplacement de la liste des moocs lorsque le btn-action/cta est utilisé */
+.container-moocs-scrollTop{margin-top: 13rem;}
+
+
+/*card style*/
+.card{
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.6);
+
+    /*compatibilites navigateurs*/
+    -webkit-border-radius: 1%;
+    -moz-border-radius: 1%;
+    border-radius:1%;
+    cursor: pointer;
+    /*position:absolute;*/
+}
+
+.card-hover:hover{
+    border-radius: 0 0 5% 5%;
+    box-shadow: 0 8px 22px 0 rgba(0,0,0,0.6);
+    transition:  .3s;
+    /*compatibilites navigateurs*/
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+}
+
+.card-title{
+    /*color: #527593 ;*/
+    font-size: 1.15rem;
+    color:#454545;
+    padding-top: 15px;
+}
+
+/*saut de ligne si le titre est court pour que les btn soient au même niveau sur chaque carte*/
+.separator hr{
+    border-width:0;
+    padding-bottom: 2px;
+}
+
+/*emplacement du logo à l'interieur de la carte*/
+.brand-info{padding:10px 0 0 10px;}
+
+
+/********************RESPONSIVE CARD LISTMOOC*****************/
+/*container list mooc responsive*/
+@media  (min-width: 1100px) {
+    .container-moocs-scroll {
+        margin: 8rem 0 0 0;
+    }
+}
+
+/***************************CAROUSEL***********/
+
+.carousel-control-prev,.carousel-control-next  {background:#FFF;width:25px;}
+.carousel-control-prev {left:-25px;}
+.carousel-control-next {right:-25px;}
+.carousel-item.active{ display:flex;}
+
+/*********************************************************
+                    PAGE MENTIONS LEGALES
+********************************************************/
+/* btn color style*/
+.email{color: #deb887;}
+
+/*cadre style*/
+.bordure{  padding-top:3rem ;border: 2px solid  #deb887; !important} /* ne peux pas ecraser la class "border" de bootstrap*/
+#wrapper-bordure{ margin:5rem 3rem;}
+
+/*********************************************************
+                    PAGE CONTACT
+********************************************************/
+/*bloc style*/
+.jumbotron, .btn-lg{    /*ecrase la class "btn-lg"  de bootstrap */
+    background:#596173;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.6);
+    transition:  .2s;
+    /*compatibilites navigateurs*/
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+}
+.jumbotron:hover , .btn-lg:hover{
+    box-shadow: 0 8px 20px 0 rgba(0,0,0,0.6);
+    border-radius:25px;
+    /*compatibilites navigateurs*/
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+}
+
+/*blocs style*/
+.jumbotron-text-left{ color:#FFF;}
+
+.jumbotron-text-right{
+    font-size: 21px;
+    color:#000;
+}
+
+/*btn mailto style*/
+.btn-lg{  /* ecrase la class de bootstrap*/
+    width:200px;
+    text-align:center;
+    background:#302e2e;
+    /* position :absolute;
+     left:50%;
+     top:50%;*/
+}
+
+/*btn d'envoi style*/
+form button.btn-outline-secondary{
+    background:#302e2e;
+}
+
+/*ne peut pas ecraser la classe "rounded" de bootstrap*/
+.round{
+    border-radius: 25rem;
+    /*compatibilites navigateurs*/
+    -webkit-border-radius: 25rem;
+    -moz-border-radius: 25rem;
+}
+
+/*localisation btn*/
+.absolute{
+    position: absolute;
+    top:86%;
+    right:-4%;
+}
+
+/************RESPONSIVE DU BTN-EMAIL***********/
+@media(max-width:464px) {
+    .absolute{ position:static; margin-left:8%;  }
+}
+
+/*********************************************************
+                    PAGE TEASER MOOC
+********************************************************/
+/*#wrapper figure button{ margin:0 auto; }*/
+.btn-started, .btn-back{
+    letter-spacing: 2px;
+    transition: all 0.5s ease;
+    /*compatibilité navigateur*/
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+.btn-started{ padding:15px; }
+.btn-back{ padding:5px;}
+
+ hr.separator-footer{
+    border: 3px;
+    height: 3px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+.title{
+    font-size: 1.3em;
+}
+/***************OVERLAY IMAGE  *********************/
+
+/*position overlay sur l'image*/
+.card-img-overlay{  /*ecrase en partie la class de bootstrap*/
+    top:-15px;
+    padding: 1rem .9em;
+    cursor: pointer;
+}
+
+/*encapsule le texte en scroll avec effet de disparition*/
+.overflown {
+    font-size: 0;
+    background: rgba(13, 100, 181, 0.5);
+    opacity: 0;
+    transition: background-color 1s ease-in, opacity 1s ease-in;
+    -moz-transition:background-color 1s ease-in, opacity 1s ease-in;
+    -webkit-transition: background-color 1s ease-in, opacity 1s ease-in;
+}
+
+/*position texte dans la capsule + ds celle de la card-overlay*/
+.overflown .overlay-description {
+    padding:10px;
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    font-size: 1rem;
+    /*border: 1px solid silver;*/
+    height: 159px;
+    overflow-y: scroll;
+    color:#FFF;
+}
+
+/*hover: effet d'apparition du texte qui est je le rappel encapsulé*/
+.card-img-overlay:hover .overflown{
+    opacity: 1;
+    transition: background-color 1s ease-in, opacity 1s ease-in;
+    -webkit-transition: background-color 1s ease-in, opacity 1s ease-in;
+    -moz-transition:background-color 1s ease-in, opacity 1s ease-in;
+}
+
+
+/*************POPUP OVER /START COURS***************/
+/*l'enveloppe */
+.popover-container{
+    position: relative;
+    display:inline-block;
+}
+/*popover style*/
+.popover-content {
+     display:none;
+    position:absolute;
+    text-align: center;
+    transform: translate(0,10px);
+    width:250px;
+    background: #FFF;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border-radius: 1rem;
+    /*compatibilites navigateurs*/
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    padding: 1rem;
+    color: white;
+    font-size: 0.9em;
+    cursor: pointer;
+    top: -38px;
+    left: 253px;
+}
+
+/*position de la fleche du popover */
+.popover-content:before {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    border-style: solid;
+    border-color: transparent transparent #BFBFBF transparent;
+    /*border-width: 0 28px 6px 10px;*/
+    right: calc(102% - 12px);
+    top: 45px;
+    border-width: 0 13px 18px 6px;
+    transform: rotate(36deg);
+    /*compatibilités navigateur*/
+    -ms-transform: rotate(36deg);
+    -webkit-transform: rotate(36deg);
+}
+
+/*************POPUP OVER RESPONSIVE ***************/
+@media  (max-width: 768px) {
+    .popover-content {
+        display:none;
+        position: absolute;
+        left: -23px;
+        top:54px;
+        transform: translate(0,10px);
+        background-color: #FFF;
+        border-radius: 1rem;
+        /*compatibilites navigateurs*/
+        -webkit-border-radius: 1rem;
+        -moz-border-radius: 1rem;
+        padding: 1rem;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        width: 280px;
+    }
+    .popover-content:before {
+        position: absolute;
+        z-index: -1;
+        content: '';
+        right: calc(50% - 10px);
+        top: -10px;
+        border-style: solid;
+        border-width: 0 10px 10px 10px;
+        border-color: transparent transparent #BFBFBF transparent;
+        transform: rotate(0deg);
+        /*compatibilités navigateur*/
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+
+    }
+}
+
+
+/*********************************************************
+                 PAGE MOOC
+********************************************************/
+
+/*div style*/
+.div{
+    border:5px solid teal;
+    border-left: none;
+    font-size: .8em;
+    display: inline-block;
+    width: 15em;
+    height: 5em;
+    color:#FFF;
+    padding:1.40%;
+    text-align: center;
+}
+
+/*gradient sur tous les modules*/
+.gradient{ background: linear-gradient(-90deg,#3878e0, white);}
+
+.div:first-child{ border-left:5px solid teal}
+
+/*icon de liste à puces avec un caractere décimal*/
+ul#puce>li>a::before ,
+div#puce>div::before { content: "\21AA"; padding-right: 1rem;}
+
+
+/*bordure navigation session*/
+.bordure-menu{padding:0; border: 4px solid  #1ca3a5 ; !important}
+
+/*****fond card-header********/
+.card-header{ background-color:grey; color:#FFF ;  !important}/*ecrase la class card-header de bootstrap*/
+.card-header:hover{color: #FFF; !important; background-color: #1ca3a5 ; !important } /*ecrase la class card-header de bootstrap*/
+
+
+
+
+/**************** CONTAINER COMMENTAIRES STYLE************/
+
+section .background , div.background{ background-color: #f8f9fa;}
+section .language-html {
+    padding: .2rem .4rem;
+    font-size: 90%;
+    color: #111;
+    border-radius: .25rem;
+    /*compatibilites navigateurs*/
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+
+/*indente le bloc reponse*/
+.indent {text-indent: 5rem;}
+
+/* commentaire administrateur style*/
+.administrateur{background-color: #1ca3a5}
+
+/***********POPUP COMMENTS AJOUTS*****************/
+
+/* emplacement de la fenetre */
+.overlay {
+    /* height: 50%; */
+    width: 0;
+    position: fixed;
+    z-index: 10000;
+    right: 0;
+    top: 50%;
+    background-color: #1ca3a5;
+    /* background-color: rgba(3,153,155, 0.9); */
+    overflow-x: hidden;
+    transition: 0.5s;
+    /*compatibilites navigateurs*/
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+}
+
+/* Position du contenu ds la fenetre  */
+.overlay-content {
+    position: relative;
+    /*  top: 25%;*/
+    width: 80%;
+    /*text-align: center;*/ /* Centrer texte/lien */
+    margin: 28px; /*  eviter les conflits de fermetures sur les ecran plus petits */
+}
+
+/* localisation btn closeup */
+.overlay .closebtn {
+    position: absolute;
+    /*  top: 20px;*/
+    right: 45px;
+    font-size: 60px;
+}
+
+/***********RESPONSIVE COMMENTAIRES POPUP POSTS***********/
+
+/* font-size du btn changent , pas de chevauchement*/
+@media screen and (max-height: 450px) {
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+
+/*********************************************************
+                    PAGE QUIZZ in PAGE MOOC
+********************************************************/
+
+.bg{background-image:url('../images/error500-glennoble.jpg') ;}
+
+
+
+
+
+
+/************** CHECKBOX STYLE ********************/
+/* label style */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 36px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    display: inline-block;
+    font-size: 17px;
+}
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label::before,
+[type="checkbox"]:checked + label::before {
+    content: '';
+    position: absolute;
+    left: 1px; top: 2px;
+    width: 22px; height: 21px;
+    border: 2px solid #1ca3a5;
+    background: #ffffff;
+    border-radius: 6px;
+    /*compatibilites navigateurs*/
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked marqueur style */
+[type="checkbox"]:not(:checked) + label::after,
+[type="checkbox"]:checked + label::after {
+    content: '✔';
+    position: absolute;
+    top: 0; left: 10px;
+    font-size: 24px;
+    line-height: 1.2;
+    color: #09ad7e;
+    transition: all .2s;
+    /*compatibilites navigateurs*/
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+}
+/* checked marker aspect changes */
+[type="checkbox"]:not(:checked) + label::after {
+    opacity: 0;
+    transform: scale(0);
+}
+[type="checkbox"]:checked + label::after {
+    opacity: 1;
+    transform: scale(1);
+}
+/*!* disabled checkbox *!
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+    box-shadow: none;
+    border-color: #1ca3a5;
+    background-color: #ffffff;
+}
+[type="checkbox"]:disabled:checked + label:after {
+    color: #1ca3a5;
+}
+[type="checkbox"]:disabled + label {
+    color: #1ca3a5;
+}*/
+/* accessibility */
+[type="checkbox"]:checked:focus + label::before,
+[type="checkbox"]:not(:checked):focus + label::before {
+    border: 2px solid #1ca3a5;
+    background:#fff;
+}
+/* hover style  */
+label:hover::before {
+    border: 2px solid #1ca3a5 !important;
+    background: #1ca3a5;
+}
+
+
+/*********************************************************
+                    PAGES ERROR
+********************************************************/
+/*background name*/
+#cinqcent{background-image:url('../images/error500-glennoble.jpg') ;}
+#quatrecentquatre{ background-image:url('../images/error404-patrickfore.jpg') ;}
+#quatrecentrois{ background-image:url('../images/error403-jesseorrico.jpg') ;}
+
+/*background position*/
+#cinqcent, #quatrecentquatre, #quatrecentrois{
+    left: 0;
+    top: 0;
+    height: 50rem;
+    width: 100%;
+   /* min-height: 100%;
+    min-width: 1200px;*/
+    opacity: 0.8;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*block position*/
+.container1, .container2, .container3{
+    max-width: 1200px;
+    display: block;
+    position: relative;
+    bottom: -5rem;
+    color: #fff;
+    width: 72%;
+    left: 15%;
+    padding: 1rem;
+    overflow:hidden;
+}
+.container1{ background-color: rgba(0, 0, 0, 0.6);}
+
+/*texte position relatif au block*/
+.container1 .txt-b ,.container2 .txt-b, .container3 .txt-b{
+    margin-top:3rem;
+}
+.container2 .txt-b{ text-align:center; }
+
+/*text style*/
+#quatrecentrois h1 span, #quatrecentrois span {background-color: #D21C57;}
+
+/*********************************************************
+                    PAGE PLAN DU SITE
+********************************************************/
+/*animation au survol /page plansite*/
+#pleft:hover{
+    margin-left:20px;
+    transition: 0.3s ease;
+    /*compatibilité navigateurs*/
+    -moz-transition:  0.3s ease;
+    -webkit-transition:  0.3s ease;
+    -o-transition:  0.3s ease;
+}
+
+/*********************************************************
+                    PAGE BILAN
+********************************************************/
+td{word-break:break-all;}
+
+/*nav style*/
+.thead-inverse{ background:#596173;color:#FFF;}
+
+/*puces style*/
+#puce>td:first-child::before{ content: "\21AA"; padding-left: 1rem;}
+.session>td:first-child::before{ content: "\21AA";padding-left: 2rem; }
+.cours>td:first-child::before{ content: "\21AA";padding-left: 4rem; }
+
+/**********RESPONSIVE*******/
+@media(max-width:655px) {
+    #puce>td:first-child::before,
+    .session>td:first-child::before ,
+    .cours>td:first-child::before{
+        padding-left:0;
+    }
+
+}

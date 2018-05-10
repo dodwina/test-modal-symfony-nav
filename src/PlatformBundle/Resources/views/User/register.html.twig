@@ -1,0 +1,105 @@
+{% extends "@PlatformBundle/Resources/views/Default/layout.html.twig" %}
+{% block title %} S'enregistrer {% endblock %}
+{% block head %}
+    {{ parent() }}
+    <meta name="description" content="{% trans %}" "{% endtrans %}/>
+{% endblock %}
+
+{% block content %}
+    {% block main %}
+       {% for message in app.flashes('message') %}
+           <div class="alert alert-success text-center" role="alert">
+               {{ message }}
+           </div>
+       {% endfor %}
+
+
+    <!--INSCRIPTION-->
+    <div id="user_register">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="lead">{{ 'gzhejkrltyuokitgjn,fldmsejfrhgjklsmqniol;.' | trans }}
+                        <br/>
+                        <a href="{{ path('platform_contact') }}" target="_blank">
+                            <i class="fas fa-arrow-right"></i>{{ 'En cas de difficulté de connection, contactez-nous' | trans }}
+                        </a>
+                    </p>
+
+                    {% if error.messageKey is defined  %}
+                        <div class="alert alert-danger has-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                   <!-- register form-->
+                   <form  action="{{ path('security_register') }}" method="post" class="register_form" data-async role="form" id="modal_register">
+
+                       <input type="hidden" id="user_registration_form__token" class="form-control" name="user_registration_form[_token]" value="">
+
+                       <div class="form-group">
+                           <div class="input-group">
+                               <span class="input-group-addon"><i class="fas fa-user-circle" aria-hidden="true"></i></span>
+
+                               <input type="text" id="firstname" class="form-control" name="_firstname" placeholder="Prénom" required="required">
+
+                               <input type="text" id="username" class="form-control" name="_username"  placeholder="Nom" value autofocus required="required">
+                           </div>
+                       </div>
+
+                       <div class="form-group">
+                           <div class="input-group">
+                               <span class="input-group-addon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+                               <input type="email" id="email" class="form-control" name="_email" placeholder="Adresse e-mail" required="required">
+                           </div>
+                       </div>
+
+                       <div class="form-group">
+                           <div class="input-group">
+                               <span class="input-group-addon"><i class="fas fa-lock" aria-hidden="true"></i></span>
+                               <input type="password" id="password" class="form-control" name="_password" placeholder="Mot de passe" required="required">
+                               <a href="#" class="hide-password hide-password--register">{{ 'caché '| trans }}</a>
+                           </div>
+                       </div>
+
+                       <div class="form-group">
+                           <div class="input-group">
+                               <span class="input-group-addon"><i class="fas fa-briefcase" aria-hidden="true"></i></span>
+                               <input type="text" id="job" class="form-control"  name="_job" placeholder="Profession (choix)"  required="required" >
+                               <span class="text-danger">*</span>
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <div class="input-group">
+                               <span class="input-group-addon"><i class="fas fa-map-marker" aria-hidden="true"></i></span>
+                               <input type="text" id="localisation" class="form-control" name="_localisation" placeholder="localisation (choix)"  required="required" >
+                               <span class="text-danger">*</span>
+                           </div>
+                       </div>
+                       <div class="form-check">
+                           <input type="checkbox" id="register_terms" name="terms" class="form-check-input" required="required" value="true">
+                           <label class="form-check-label" for="register_terms" > {{'J\'ai lu et j\'accepte'|trans   }} <a target="_blank" href="{{ path('platform_mentionsLegales') }}#terms"> {{ 'les Conditions Générales d\'Utilisation.'|trans }}</a>
+                           </label>
+                       </div>
+                       <div>
+                           <input class="btn btn-successe btn-started btn-block " id="register_submit" type="submit" name="submit" value="{{ 'S\'enregistrer'|trans }}" />
+                       </div>
+
+                       <input type="hidden" id="route" class="form-control" name="_route" >
+
+
+                   </form><!--/form register-->
+
+                   <!--btn return-->
+                   <div class=" m-3">
+                       <p class="text-left" style="font-weight: 700;"><a href="{{ path('security_login') }}
+                              " class=" btn-back" id="return_login" title="{{ 'retour à la connection'| trans  }}">
+                               <u style= "text-decoration: underline;text-decoration-color: grey;"><i class="fas fa-arrow-left" ></i> {{ 'Se connecter' | trans }}</u></a>
+                       </p>
+                   </div><!--/btn return-->
+               </div><!--/col-->
+           </div><!--/row-->
+       </div><!--/container-->
+   </div><!--/id register-->
+
+{% endblock %}
+
+{% endblock %}

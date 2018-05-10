@@ -1,0 +1,71 @@
+<!--si page d'accceuil -->
+
+    <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark" xmlns="http://www.w3.org/1999/html" role="navigation">
+        <div class="container">
+            <!--logo-->
+            <a class="navbar-brand " href="{{ path('homepage') }}">
+
+            </a>
+
+            <!--menu responsive-->
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span><span>Menu</span>
+            </button>
+
+            <!--menu-->
+            <div id="navbarNavDropdown" class="collapse navbar-collapse show" aria-expanded="true" >
+
+                 <!--menu de droite-->
+                <ul class="navbar-nav ml-auto" >
+
+
+                     <li class="nav-item" id="modal-action" data-toggle="modal" data-target="#modal-action"><a class="nav-link text-dark" >{{ "Se connecter / S'inscrire " | trans }}</a></li>
+
+
+
+                        <li class="nav-item"><a class="nav-link text-dark" href="{{ path('platform_homepage') }}"> <span class="pr-2"> <i class="fas fa-unlock fa-1x" aria-hidden="true" title="Espace d'administration"></i></span>{{  "Administrateur" | trans }}</a></li>
+                        <li class="nav-item"> <a class="nav-link text-dark" href="{{ path('security_logout') }}"><i class="fas fa-power-off fa-1x " aria-hidden="true" title="Déconnexion"></i></a></li>
+                </ul><!--/navbar-nav-->
+            </div><!--/navbarnavdropdown-->
+        </div><!--/container-->
+    </nav>
+
+
+    {% if not app.user or app.user is null  %}
+
+    <!--  MODAL REGISTER /LOGIN /RESETTING MDP-->
+    <div class="modal fade hide" id="modalForms" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="navigation">
+            <div class="modal-content">
+                <div class="modal-header container">
+                    <h2 class="modal-title " id="modalLabel">{{ " Se connecter " | trans }}</h2>
+                    <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+
+                    <!--POPUP LOGIN-->
+                    {% include "PlatformBundle:User:login.html.twig" %}
+                </div>
+
+                 <!--POPUP REGISTER-->
+
+                <!--si je met le register ,'j'ai une erreur 256 -->
+               {#{% include "PlatformBundle:User:register.html.twig" %}#}
+
+                 <!--POPUP LOST MPD-->
+                 {% include "PlatformBundle:User:request_password.html.twig" %}
+
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+
+
+
+
+
+
+
+

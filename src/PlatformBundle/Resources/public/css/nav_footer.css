@@ -1,0 +1,199 @@
+/*********************************************************
+                     NAVIGATION
+********************************************************/
+
+/*ecrase la classe bg-success de bootstrap pour donner une couleur differente à la nav
+ => Pr mieux gérer les composants Boostrap ,installer SASS si usage de symfony >=3.4*/
+
+/*  nav colorée en toute page + nav colorée à la page d'acceuil au scroll + click btn */
+nav.navbar.bg-success,
+nav.navbar.bg-success-nav{ background-color: #1ca3a5 !important;}
+
+nav.navbar.bg-success-scrollTop ,
+nav.navbar.bg-success-scrollTop--fixed{ background: #1ca3a5 ;transition:1s }
+
+
+/*hormis l'acceuil (seulement en responsive), toutes les pages ont leur barre de navigation fixe*/
+nav.navbar{
+    position:fixed;
+    z-index:10;
+    width:100%;
+    top:0;
+    left:0;
+    right:0;
+}
+
+/* toutes les pages: couleur de liens du menu*/
+/*nav.navbar-dark .navbar-nav .nav-link{ color:#FFF; !important;}*/
+
+
+
+
+/***************** MENU RESPONSIVE NAV ET LIENS DE MENU COLORES DE LA PAGE D'ACCEUIL ***********/
+@media(max-width:990px) {
+    /*nav colorée inf à 990*/
+    nav.navbar{ background-color: #1ca3a5 !important;}
+
+}
+@media(min-width:990px) {
+    /*lien de menu colorés sup à 990*/
+    nav.navbar .nav-item .color-dark{ color: #000;}
+}
+
+
+/*********************************************************
+                    NAVIGATION
+********************************************************/
+/* fenetre de sous-menu de connexion retraisit en écrasant la class dropdown-menu de bootstrap*/
+.dropdown-menu{min-width: 0;}
+
+form div a{color:#1b6d85; }
+
+
+/*********************************************************
+            AUTHENTIFICATION LOGIN/REGISTER
+********************************************************/
+/*existe uniquement pour ie 10 et 11 => supprimer le contenu d'un input en décochant une croix rouge  */
+input::-ms-clear, textarea::-ms-clear {color:red;}
+
+/*champs obligatoires */
+.text-danger{ color:red;}
+
+/* btn Inscription par facebook*/
+/*.btn.soc.fb{ background-color: #3B5998;}
+.btn.soc{
+    display:block;
+    width:100%;
+    margin:1em 0;
+    padding: 1em;
+    text-align:center;
+    text-decoration: none;
+    font-weight: 600;
+    color:#FFF;
+    !*compatibilites navigateurs*!
+    -webkit-border-radius: .2em .2em .2em .2em;
+    -moz-border-radius: .2em .2em .2em .2em;
+    border-radius:.2em .2em .2em .2em;
+
+}*/
+
+/*titre des popups*/
+.modal-title{ text-align: center; !important; /*ecraser la classe de bootstrap ne fonctionne pas*/
+}
+/*interlignage entre le titre et container form*/
+.modal-body{padding: 0 ; !important;}
+
+/* hide/show password register/login*/
+form .hide-password--register ,form .hide-password--login {
+    display: inline-block;
+    z-index: 5;
+    position: absolute;
+    right: 0;
+    padding: 1px 23px;
+    border-left: 1px solid #d2d8d8;
+    bottom: auto;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: #343642;
+}
+/* hide/show password login/register suite*/
+form .hide-password--register{top:2.9rem;}
+form .hide-password--login {top:1.3rem;}
+
+/*doir ecraser la class boostrap pour centrer les formulaires*/
+/*
+.col-md-12{ padding-left: 0;}
+*/
+
+
+/***************captcha**********************/
+.relative-wrap{
+    position: relative;
+}
+
+/*********************************************************
+                    PAGE REGISTER
+********************************************************/
+.top-left{margin-top: 10rem;}
+.top-right{margin-top: 10rem;}
+
+@media(max-width:767px) {
+    .top-right{
+        margin-top:2rem ;
+    }
+}
+
+.has-error{
+    font-size: 1em;
+    color:#F66764;
+    font-style: italic;
+}
+/*ecrase class boostrap*/
+.alert{margin-top :5rem ; }
+
+/*********************************************************
+                    FOOTER
+********************************************************/
+footer.nb-footer {
+    background: #1ca3a5;
+    padding: 7px 0;
+    /* background: #222;*/
+    border-top: 4px solid #b78c33;
+    margin-top: 30px;
+}
+footer.nb-footer .about {
+  /*  margin: 0 auto;*/
+    margin-top: 40px;
+    max-width: 1170px;
+    text-align: center;
+}
+
+footer.nb-footer .footertext{color: #FFF;/*#999;*/}
+
+footer.nb-footer .about .social-media ul li a{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #deb887;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin:0.2em 0.3em 0.5em;
+}
+footer.nb-footer .about .pages ul li a{margin: 0 1rem; }
+
+footer.nb-footer .about p{font-size: .8em;}
+
+
+
+
+
+  /*.bulle-social
+  {
+      text-align: center;
+      width:250px;
+      position: relative;
+      background: BurlyWood;
+      box-shadow: 2px 5px 1px #1c1a19;
+      border-radius: 5px;
+      padding: 10px;
+      color: white;
+      font-size: 0.9em;
+      cursor: pointer;
+  }
+  #fleche_bulle
+  {
+      position: absolute;
+      top: 35%;
+      left: -12px;
+  }
+
+*/
+
+
+
+
+
+
+

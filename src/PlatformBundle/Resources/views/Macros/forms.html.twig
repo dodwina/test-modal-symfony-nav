@@ -1,0 +1,14 @@
+{% macro input(name=null, label, value = null, type, options=[], placeholder=null) %}
+    <div class="form-groups padding-top">
+        <label for="{{ name }}"> {{ label }}</label>
+        <input type="{{ type|default('text') }}" class="form-control" id="{{ name }}" name="{{ name }}" value="{{ value |e }}" {#placeholder=" {{ name }}"#} required>
+    </div>
+{% endmacro %}
+
+{% macro textarea(name, label, value = null, type, options=[], placeholder=null) %}
+    <div class="form-groups padding-top">
+        <label for="{{ name }}"> {{ label }}</label>
+        <textarea class="form-control" id="{{ name }}" name="{{ name }}" rows="{{ rows|default(5) }}" cols="{{ cols|default(40) }}" {#placeholder="{{ name }}"#} required>{{ value }}</textarea>
+    </div>
+{% endmacro %}
+

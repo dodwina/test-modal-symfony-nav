@@ -1,0 +1,47 @@
+services:
+#    platform.example:
+#        class: PlatformBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+#    checkOldPassword:
+#        class: PlatformBundle\Services\CheckOldPassword
+        
+    validator.checkPassword:
+        class: 'PlatformBundle\Validator\Constraints\CheckPasswordValidator'
+        arguments:
+            - '@security.encoder_factory'
+            - '@security.token_storage'
+            - '@request_stack'
+        tags:
+            - { name: 'validator.constraint_validator', alias: 'validatorCheckPassword' }
+        
+    validator.checkOldPassword:
+            class: 'PlatformBundle\Validator\Constraints\CheckOldPasswordValidator'
+            arguments:
+                - '@security.encoder_factory'
+                - '@security.token_storage'
+                - '@request_stack'
+            tags:
+                - { name: 'validator.constraint_validator', alias: 'validatorCheckOldPassword' }
+    
+    validator.checkNewPassword:
+            class: 'PlatformBundle\Validator\Constraints\CheckNewPasswordValidator'
+            arguments:
+                - '@security.token_storage'
+                - '@request_stack'
+            tags:
+                - { name: 'validator.constraint_validator', alias: 'validatorCheckNewPassword' }
+                
+    doctrineListener.notification:
+        class: 'PlatformBundle\DoctrineListener\PasswordEncrypter'
+        arguments: ['@security.encoder_factory']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: postPersist }
+            
+#    doctrineListener.userelete:
+#            class: 'PlatformBundle\DoctrineListener\UserOnDelete'
+#            arguments: ['@doctrine.orm.entity_manager']
+#            tags:
+#                - { name: doctrine.event_listener, event: onDelete }
+
+

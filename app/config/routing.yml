@@ -1,0 +1,12 @@
+
+platform:
+    resource: "@PlatformBundle/Controller/"
+    type:     annotation
+
+
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+
